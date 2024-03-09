@@ -11,8 +11,6 @@ class UserDetails:
     def getSeries(self):   
         return self.tvseries
     
-
-
 if __name__ == "__main__":
     x = UserDetail("aneesh@wer.com"," Got, Breaking bad, Naruto , One Piece   ")
     print(x.getEmail())
