@@ -44,7 +44,7 @@ class ApiDetails:
 
         
         if len(date) is 4 and dating.compare_dates(date) is True:
-            # print("2018 ya zyada",start,"--> ",end)
+            
             return False
   
         elif len(end) is 0:

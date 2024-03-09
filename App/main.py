@@ -10,7 +10,7 @@ def main():
     user_series = input("TV Series: ")
 
     user = UserDetails(user_email,user_series)
-    message = ""
+    message = ''
 
     database = DatabaseEntry(config.DB_USERNAME,config.DB_PASSWORD,"testing")
     database.createTable("versionbeta")
