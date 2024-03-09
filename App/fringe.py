@@ -34,12 +34,9 @@ class ApiDetails:
         start, end  = self.year[:4] , self.year[5:]
         start_f, end_f  = dating.compare_dates(start), dating.compare_dates(end)
 
-        # print(date)
-        # print(start," --> ",end)
-        # print(start_f,end_f)
         
         if len(date) is 4 and dating.compare_dates(date) is True:
-            # print("2018 ya zyada",start,"--> ",end)
+            
             return False
   
         elif len(end) == 0:

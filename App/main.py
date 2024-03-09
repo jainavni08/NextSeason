@@ -23,7 +23,5 @@ def main():
     email = Emailer(user.getEmail(),message)
     email.emailThis()
 
-
-
 if __name__ == "__main__":
     main()
