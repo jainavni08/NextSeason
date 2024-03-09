@@ -5,32 +5,24 @@ import bs4 as bs
 import dating 
 
 class ApiDetails:
-
     def __init__(self,tvseries):
         self.tvseries = tvseries
         api_url = config.API_KEY + tvseries
         self.key = requests.get(api_url).json()
 
-
-
     @property
     def response(self):
         return self.key['Response']
-
     @property
     def imdbID(self):
         return self.key['imdbID']
-
     @property
     def title(self):
         return self.key['Title']   
-
     @property
     def year(self):
         api_year = self.key['Year']
-
         return api_year.strip()
-
     @property
     def type(self):
         return self.key['Type']    
@@ -50,12 +42,12 @@ class ApiDetails:
             # print("2018 ya zyada",start,"--> ",end)
             return False
   
-        elif len(end) is 0:
+        elif len(end) == 0:
             # 2016- type case 
             return False
 
 
-        elif start_f is False and end_f is False:
+        elif start_f == False and end_f == False:
             # 2016-2017 type case 
             return True
 
@@ -65,8 +57,9 @@ class ApiDetails:
      
 
 def fetchLastSeason(title):
-    
-    url = "https://www.imdb.com/title/{}/?ref_=ttep_ep_tt".format(title)
+
+    urlStr = "https://www.imdb.com/title/{}/?ref_=ttep_ep_tt"
+    url = urlStr.format(title)
     
     sauce = urllib.request.urlopen(url).read()
     soup = bs.BeautifulSoup(sauce,'html.parser')
@@ -80,7 +73,8 @@ def fetchLastSeason(title):
 def scrapeDates(title, season):
 
     last_list = []
-    url = "https://www.imdb.com/title/{0}/episodes?season={1}".format(title,season)
+    urlStr = "https://www.imdb.com/title/{0}/episodes?season={1}"
+    url = urlStr.format(title,season)
     sauce = urllib.request.urlopen(url).read()
     soup = bs.BeautifulSoup(sauce, 'html.parser')
 
